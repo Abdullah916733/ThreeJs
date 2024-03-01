@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>box design</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="productDetailContainer">
+      <div class="container">
+        <div class="main_wrap_box">
+          <div class="details-box">
+            <div class="details-box-inner">
+              <h1>design your product</h1>
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="pills-home-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-home"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                  >
+                    <div class="icon-box">
+                      <img
+                        src="{{ asset('user-assets/user-images/svg/gear-icon.svg') }}"
+                        alt=""
+                      />
+                    </div>
+                    <p>setting</p>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="pills-profile-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-profile"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-profile"
+                    aria-selected="false"
+                  >
+                    <div class="icon-box">
+                      <img
+                        src="{{ asset('user-assets/user-images/svg/delivery-icon.svg') }}"
+                        alt=""
+                      />
+                    </div>
+                    <p>design</p>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="pills-contact-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-contact"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-contact"
+                    aria-selected="false"
+                  >
+                    <div class="icon-box">
+                      <img
+                        src="{{ asset('user-assets/user-images/svg/shipping-icon.svg') }}"
+                        alt=""
+                      />
+                    </div>
+                    <p>quantity</p>
+                  </button>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="pills-home"
+                  role="tabpanel"
+                  aria-labelledby="pills-home-tab"
+                >
+                  <div class="select-material-box">
+                    <select
+                      class="common-select2 box-input box-category"
+                      id="box_category_select"
+                    >
+                      <option value="none_category">select box category</option>
+                      <option value="mailer">mailer box/retail box</option>
+                      <option value="shipping">shipping box</option>
+                    </select>
+                    <select class="common-select2 box-input box-type-select">
+                      <option class="mailer" value="none">
+                        select box type
+                      </option>
+                      <option class="mailer" value="roll end lock">
+                        roll end lock
+                      </option>
+                      <option class="mailer" value="front (REFE),snap lock box">
+                        front (REFE),snap lock box
+                      </option>
+                      <option class="mailer" value="telescopic boxes">
+                        telescopic boxes
+                      </option>
+                      <option class="mailer" value="one piece folder box">
+                        one piece folder box
+                      </option>
+                      <option class="shipping" value="none">
+                        select box type
+                      </option>
+                      <option class="shipping" value="regular slotted">
+                        regular slotted
+                      </option>
+                      <option class="shipping" value="overlap slotted carton">
+                        overlap slotted carton
+                      </option>
+                      <option class="shipping" value="fully overlap">
+                        fully overlap
+                      </option>
+                    </select>
+                    <div class="btn-group dropdown dropdown-slider">
+                      <div
+                        id="myDropdown"
+                        class="dropdown-toggle size-btn"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        data-bs-auto-close="false"
+                        aria-expanded="false"
+                      >
+                        select size(inches)
+                      </div>
+                      <ul class="dropdown-menu size-menu" id="myDropdown">
+                        <ul class="size-inner-menu" id="size-form">
+                          <li data-size="200,200,200">3ply</li>
+                          <li data-size="300,100,300">5ply</li>
+                          <li data-size="100,250,200">7ply</li>
+                        </ul>
+                        <div class="custom-size">
+                          <div
+                            id="custom-header"
+                            class="custom-header"
+                            onclick="toggleplusSign()"
+                          >
+                            <span class="custom-add-header">
+                              add custom size
+                            </span>
+                            <img
+                              class="size-plus-img"
+                              src="{{ asset('user-assets/user-images/designBox/plusSign.svg') }}"
+                              alt="plus"
+                            />
+                          </div>
+                          <div
+                            class="plus-size-content"
+                            id="myDropdowns"
+                            style="display: none"
+                          >
+                            <div class="length custom-size-box">
+                              <span> length </span>
+                              <input
+                                placeholder="2.375"
+                                type="number"
+                                id="height"
+                              />
+                            </div>
+                            <div class="width custom-size-box">
+                              <span> width </span>
+                              <input
+                                placeholder="2.375"
+                                type="number"
+                                id="width"
+                              />
+                            </div>
+                            <div class="depth custom-size-box">
+                              <span> depth </span>
+                              <input
+                                placeholder="2.375"
+                                type="number"
+                                id="depth"
+                              />
+                            </div>
+                            <button type="button" id="saveButton">Save</button>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>
+                    <select
+                      class="common-select2 box-input"
+                      id="box_material_select"
+                    >
+                      <option value="none">select material</option>
+                      <option value="kraft paper">kraft paper</option>
+                      <option value="white paper">white paper</option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="pills-profile"
+                  role="tabpanel"
+                  aria-labelledby="pills-profile-tab"
+                >
+                  <div class="select-material-box-second">
+                    <div class="color-box">
+                      <label class="color-label">box color</label>
+                      <input type="color" class="color-input" id="color" />
+                    </div>
+                    <select name="" id="" class="common-select2 box-input">
+                      <option selected>select patterns</option>
+                      <option>curve lines-modern</option>
+                      <option>minimalistic</option>
+                      <option>premium</option>
+                    </select>
+                    <div
+                      class="upload-file-box"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                    >
+                      <div class="upload-file-icon-box"></div>
+                      <label>upload image</label>
+                      <input type="file" class="image-file" id="imageInput" />
+                      <label class="file-name"
+                        >size - <span>(450 x 250 px, jpg/png)</span></label
+                      >
+                    </div>
+                    <div class="image-alignment">
+                      <div class="image-alignment-box">
+                        <img
+                          src="{{ asset('user-assets/user-images/designBox/format-1.svg') }}"
+                          alt="icon"
+                        />
+                      </div>
+                      <div class="image-alignment-box">
+                        <img
+                          src="{{ asset('user-assets/user-images/designBox/format-2.svg') }}"
+                          alt="icon"
+                        />
+                      </div>
+                      <div class="image-alignment-box">
+                        <img
+                          src="{{ asset('user-assets/user-images/designBox/format-3.svg') }}"
+                          alt="icon"
+                        />
+                      </div>
+                      <div class="image-alignment-box">
+                        <img
+                          src="{{ asset('user-assets/user-images/designBox/format-4.svg') }}"
+                          alt="icon"
+                        />
+                      </div>
+                      <div class="image-alignment-box">
+                        <img
+                          src="{{ asset('user-assets/user-images/designBox/format-5.svg') }}"
+                          alt="icon"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="text-box"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdropSecond"
+                    >
+                      <label class="text-label">add text</label>
+                      <div class="text-icon"></div>
+                    </div>
+                    <div class="color-box">
+                      <label class="color-label">font color</label>
+                      <input type="color" class="color-input" id="text-color" />
+                    </div>
+                    <div class="color-box">
+                      <label class="color-label">face color</label>
+                      <input
+                        type="color"
+                        class="color-input"
+                        id="colorPicker"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="pills-contact"
+                  role="tabpanel"
+                  aria-labelledby="pills-contact-tab"
+                >
+                  <div class="select-material-box-third">
+                    <div class="price_box">
+                      <div class="price_slider">
+                        <label>select quantity</label>
+                        <input type="range" />
+                      </div>
+                      <p>150</p>
+                    </div>
+                    <div class="price_box_select">
+                      <select class="common-select2 box-input">
+                        <option value="unit price">unit price</option>
+                        <option value="unit price">unit price</option>
+                        <option value="unit price">unit price</option>
+                      </select>
+                      <p>150</p>
+                    </div>
+                    <p class="quote-text">need a custom quote?</p>
+                  </div>
+                </div>
+              </div>
+              <div class="navigation-arrows">
+                <div class="navigation-left-arrow">
+                  <img
+                    src="{{ asset('user-assets/user-images/svg/left-arrow.svg') }}"
+                    alt="arrow"
+                  />
+                </div>
+                <div class="navigation-right-arrow">
+                  <img
+                    src="{{ asset('user-assets/user-images/svg/right-arrow.svg') }}"
+                    alt="arrow"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="save-design-box">
+              <div class="save-design-name">
+                <p>box name - <span>my design</span></p>
+                <img
+                  src="{{ asset('user-assets/user-images/svg/box-pencil.svg') }}"
+                  alt=""
+                />
+              </div>
+              <div class="save-design-green-box">
+                <img
+                  src="{{ asset('user-assets/user-images/svg/box-download-icon.svg') }}"
+                  alt=""
+                />
+                <p>save design</p>
+              </div>
+            </div>
+          </div>
+          <div class="price_show_main_box">
+            <div class="face_main_box">
+              <div class="face-btn-container">
+                <div
+                  id="topButton"
+                  class="face-button"
+                  data-face="top"
+                  data-index="2"
+                >
+                  <img
+                    src="{{ asset('user-assets/user-images/svg/box-icon-top.svg') }}"
+                    data-face="top"
+                    data-index="2"
+                    alt="icon"
+                  />
+                  <span data-face="top" data-index="2">Top</span>
+                </div>
+                <div
+                  id="bottomButton"
+                  class="face-button"
+                  data-face="bottom"
+                  data-index="3"
+                >
+                  <img
+                    src="{{ asset('user-assets/user-images/svg/box-icon-bottom.svg') }}"
+                    data-face="bottom"
+                    data-index="3"
+                    alt="icon"
+                  />
+                  <span data-face="bottom" data-index="3">Bottom</span>
+                </div>
+                <div
+                  id="rightButton"
+                  class="face-button"
+                  data-face="right"
+                  data-index="0"
+                >
+                  <img
+                    src="{{ asset('user-assets/user-images/svg/box-icon-right.svg') }}"
+                    data-face="right"
+                    data-index="0"
+                    alt="icon"
+                  />
+                  <span data-face="right" data-index="0">Right</span>
+                </div>
+                <div
+                  id="leftButton"
+                  class="face-button"
+                  data-face="left"
+                  data-index="1"
+                >
+                  <img
+                    src="{{ asset('user-assets/user-images/svg/box-icon-left.svg') }}"
+                    data-face="left"
+                    data-index="1"
+                    alt="icon"
+                  />
+                  <span data-face="left" data-index="1">Left</span>
+                </div>
+                <div
+                  id="frontButton"
+                  class="face-button"
+                  data-face="front"
+                  data-index="4"
+                >
+                  <img
+                    src="{{ asset('user-assets/user-images/svg/box-icon-front.svg') }}"
+                    data-face="front"
+                    data-index="4"
+                    alt="icon"
+                  />
+                  <span data-face="front" data-index="4">Front</span>
+                </div>
+                <div
+                  id="backButton"
+                  class="face-button"
+                  data-face="back"
+                  data-index="5"
+                >
+                  <img
+                    src="{{ asset('user-assets/user-images/svg/box-icon-back.svg') }}"
+                    data-face="back"
+                    data-index="5"
+                    alt="icon"
+                  />
+                  <span data-face="back" data-index="5">Back</span>
+                </div>
+              </div>
+            </div>
+            <div class="show_price">
+              <div class="price_details">
+                <h2>summary</h2>
+                <p class="price_details_setting_text">setting</p>
+                <div class="show_price_box">
+                  <div class="show_price_box_each">
+                    <p>box category</p>
+                    <p id="box_category">mailer box</p>
+                  </div>
+                  <div class="show_price_box_each">
+                    <p>box type</p>
+                    <p id="box_type">lorem ipsum</p>
+                  </div>
+                  <div class="show_price_box_each">
+                    <p>size</p>
+                    <p id="box_size">15"X15"X10"</p>
+                  </div>
+                  <div class="show_price_box_each">
+                    <p>material</p>
+                    <p id="box_material">paper</p>
+                  </div>
+                </div>
+              </div>
+              <div class="total_details_box">
+                <div class="total_details_price_box">
+                  <p>price</p>
+                  <p>₹ 350</p>
+                </div>
+                <button>order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="cube-container"
+        class="cube-container"
+        style="width: 100%; height: 100%"
+      ></div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade address-section image-modal"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Face Preview</h5>
+            </div>
+            <div class="modal-body">
+              <div class="image_show_modal" id="image_container">
+                <div class="fabric_canvas"><canvas id="canvas-0"></canvas></div>
+                <div class="fabric_canvas"><canvas id="canvas-1"></canvas></div>
+                <div class="fabric_canvas"><canvas id="canvas-2"></canvas></div>
+                <div class="fabric_canvas"><canvas id="canvas-3"></canvas></div>
+                <div class="fabric_canvas"><canvas id="canvas-4"></canvas></div>
+                <div class="fabric_canvas"><canvas id="canvas-5"></canvas></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn image_cancel modal_footer_cancel_btn"
+                id="delete_object"
+              >
+                <img
+                  src="{{ asset('user-assets/user-images/svg/modal-cancel-icon.svg') }}"
+                  alt="icon"
+                />
+                Delete
+              </button>
+              <button
+                type="button"
+                class="btn save_design modal_footer_design_btn"
+                data-bs-dismiss="modal"
+              >
+                Save face design
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  Modal -->
+
+      <!-- Text Modal -->
+      <div
+        class="modal fade address-section image-modal"
+        id="staticBackdropSecond"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content modal-content-second">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">add text</h5>
+              <button
+                type="button"
+                class="close image_cancel image_cancel_arrow"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="text_show_modal" id="image_container">
+                <div class="select-text-box">
+                  <select name="" id="text_font" class="common-select">
+                    <option value="arial black">arial black</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                  </select>
+                </div>
+                <div class="text-area-box">
+                  <textarea
+                    rows="4"
+                    cols="40"
+                    placeholder="enter your text"
+                    id="text_value"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn proceed_button modal_footer_design_btn"
+                data-bs-dismiss="modal"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+              >
+                proceed
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Text Modal -->
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.130.0/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/fabric@5.3.0/dist/fabric.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"
+  ></script>
+  <script src="boxDesign.js"></script>
+  <script src="clickEvents.js"></script>
+</html>
